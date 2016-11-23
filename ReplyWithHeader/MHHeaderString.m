@@ -499,10 +499,10 @@ NSString *MH_QUOTED_EMAIL_REGEX_STRING = @"\\s<([a-zA-Z0-9_@\\.\\-]*)>,?";
             
             [dateFormatter setLocale:choosenLocale];
             int dateTagStyle = GET_DEFAULT_INT(MHHeaderAttributionDateTagStyle);
-//            if (dateTagStyle == 0) {
-//                NSLog(@"Default Date format: %@", [dateFormatter dateFormat]);
-//                [dateFormatter setDateFormat:@"EEEE, MMM d, yyyy 'at' h:mm:ss a"];
-//            } else
+             if (dateTagStyle == 0) {
+                 NSLog(@"Default Date format: %@", [dateFormatter dateFormat]);
+                 [dateFormatter setDateFormat:@"yyyy年MM月dd日 HH:mm:ss"];
+             } else
             if (dateTagStyle == 1) {
                 //[dateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
                 NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
